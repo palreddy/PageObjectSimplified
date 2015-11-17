@@ -9,9 +9,9 @@ Feature: Implementing Page Object Model in Cow & Gate Site
   Scenario: Populating the registration form
    
     When I click on "Join Our Club" link
-  	And I populate the "data" in registration page
+  	And I populate the data in registration page
   	|data|
-  	|pqr-stu-NE45AN-1-1-2015-yes-stu@gmail.com-fhjjhjjh-ABCDEF075|
+  	|wxy-vwx-NE45AN-1-1-2015-yes-wxy@gmail.com-khjjjjjj-ABCDEF075|
   	
     And click on JoinTheClub link
     Then I should navigate to registration sucessfull page

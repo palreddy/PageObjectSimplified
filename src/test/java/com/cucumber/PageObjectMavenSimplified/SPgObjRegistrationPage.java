@@ -1,5 +1,6 @@
 package com.cucumber.PageObjectMavenSimplified;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -13,6 +14,8 @@ public class SPgObjRegistrationPage extends SPgObjAbstractPage{
 	public SPgObjRegistrationPage(WebDriver driver) {
 		super(driver);
 	}
+
+	
 
 	public SPgObjRegistrationPage getFirstName(String fFirstName){
 		
@@ -104,13 +107,21 @@ public class SPgObjRegistrationPage extends SPgObjAbstractPage{
 		driver.findElement(By.cssSelector(".non-mobile.button.button-large.primaryButton")).click();
 		return new SPgObjConfirmPage(driver);
 	}
-/*public List getDataSorted(DataTable data){
-	
+public List getDataSorted(DataTable data){
+	List fDataField= new ArrayList<String>();
 	List<List<String>> input=data.raw();
 	String longData=input.get(1).get(0);  
 	
+String[] fData=longData.split("\\-");
 	
 	
-	return list
-}*/
+	for (int i=0;i<fData.length;i++ ){
+	String fDataSplit=fData[i];
+	
+	fDataField.add(fDataSplit);	
+	
+	}
+	
+	return fDataField;
+}
 }

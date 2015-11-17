@@ -1,5 +1,7 @@
 package com.cucumber.PageObjectMavenSimplified;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,10 +15,7 @@ import cucumber.api.java.en.When;
 
 public class SPgObjCommonPage {
 	
-	
-	
-	
-WebDriver driver=new FirefoxDriver();
+	WebDriver driver=new FirefoxDriver();
 	
 	SPgObjHomePage homePage ;
 	SPgObjRegistrationPage registrationPage;
@@ -35,16 +34,27 @@ WebDriver driver=new FirefoxDriver();
 		registrationPage=homePage.clickJoinNow();
 	}
 
-	/*@When("^I populate the registration page$")
-	public void I_populate_the_registration_page() throws Throwable {
+
+	@When("^I populate the data in registration page$")
+	public void I_populate_the_data_in_registration_page(DataTable data) throws Throwable {
 		
+	   List inputData= registrationPage.getDataSorted(data);
 	   
-	}*/
-	@When("^I populate the \"([^\"]*)\" in registration page$")
-	public void I_populate_the_in_registration_page(String arg1, DataTable arg2) throws Throwable {
-		
-	    
-	}
+	   registrationPage.getFirstName((String) inputData.get(0))
+	   .getLastName((String) inputData.get(1))
+	   .getPostCode((String) inputData.get(2))
+	   .getDay((String) inputData.get(3))
+	   .getMonth((String) inputData.get(4))
+	   .getYear((String) inputData.get(5))
+	   .getBaby((String) inputData.get(6))
+	   .getEmail((String) inputData.get(7))
+	   .getUserName((String) inputData.get(8))
+	   .getPassword((String) inputData.get(9))
+	   .getGoodies()
+	   .getTerms();
+	   
+	  }
+
 
 	@When("^click on JoinTheClub link$")
 	public void click_on_JoinTheClub_link() throws Throwable {
@@ -58,19 +68,6 @@ WebDriver driver=new FirefoxDriver();
 		Assert.assertTrue("Test Fail",confirmPage.getPageTitle().equals(regTitle));
 	   
 	}
-	/*
-	 * And I enter "pqr" in First name field
-    And I enter "stu" in Last name field
-    And I enter "NE4 5AN" in PostCode field
-    And I select "1"  in date  field
-    And I select "1"  in month field
-    And I select "2015"  in year field
-    And I select  "yes" in is this your first baby
-    And I enter "stu@gmail.com" in Email Address field
-    And I enter "fhjjhjjh" in Username field
-    And I enter "ABCDEF075" in Password field
-    And I select what goodies would you like
-    And I select  checkbox in terms and conditions
-	 */
+	
 
 }
