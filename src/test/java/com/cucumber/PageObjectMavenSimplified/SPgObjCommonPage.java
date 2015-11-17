@@ -13,20 +13,7 @@ import cucumber.api.java.en.When;
 
 public class SPgObjCommonPage {
 	
-	/*
-	 * And I enter "pqr" in First name field
-    And I enter "stu" in Last name field
-    And I enter "NE4 5AN" in PostCode field
-    And I select "1"  in date  field
-    And I select "1"  in month field
-    And I select "2015"  in year field
-    And I select  "yes" in is this your first baby
-    And I enter "stu@gmail.com" in Email Address field
-    And I enter "fhjjhjjh" in Username field
-    And I enter "ABCDEF075" in Password field
-    And I select what goodies would you like
-    And I select  checkbox in terms and conditions
-	 */
+	
 	
 	
 WebDriver driver=new FirefoxDriver();
@@ -71,5 +58,19 @@ WebDriver driver=new FirefoxDriver();
 		Assert.assertTrue("Test Fail",confirmPage.getPageTitle().equals(regTitle));
 	   
 	}
+	/*
+	 * And I enter "pqr" in First name field
+    And I enter "stu" in Last name field
+    And I enter "NE4 5AN" in PostCode field
+    And I select "1"  in date  field
+    And I select "1"  in month field
+    And I select "2015"  in year field
+    And I select  "yes" in is this your first baby
+    And I enter "stu@gmail.com" in Email Address field
+    And I enter "fhjjhjjh" in Username field
+    And I enter "ABCDEF075" in Password field
+    And I select what goodies would you like
+    And I select  checkbox in terms and conditions
+	 */
 
 }
